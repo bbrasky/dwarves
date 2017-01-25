@@ -11,9 +11,19 @@
     Private IsEncumbered As Boolean = False
     Private InvWeight As Integer
     Private dwHP As Integer = 100
+    Private dwDamage As Integer = 0
 
     'Internal
     Private VAR_SPEEDSCALE As Integer = 5000
+
+    Public Property Damage As Integer
+        Get
+            Return dwDamage
+        End Get
+        Set(ByVal value As Integer)
+            dwDamage = value
+        End Set
+    End Property
 
     Public Property HP As Integer
         Get
@@ -130,6 +140,18 @@
         Return result
     End Function
 
+    Private Function HasWeapon() As Boolean
+        'determine if we have something that can be used as a weapon and set our damage
+        For Each iObj In Inventory
+            If iObj.IsWeapon Then
+                Damage = iObj.Damage
+                Return True
+            End If
+        Next
+        Return False
+    End Function
+
+
     Private Function CalculateWeight() As Integer
         Dim tWeight As Integer = 0
         For Each iobj In Inventory
@@ -152,5 +174,6 @@
             Form1.rtbOutput.ScrollToCaret()
         End If
         InventoryWeight = CalculateWeight()
+        HasWeapon()
     End Sub
 End Class

@@ -76,6 +76,8 @@
             lblSelectedState.Text = lbDwarves.SelectedItem & " is " & FindDwarf(lbDwarves.SelectedItem).State
             lblStrength.Text = "Strength: " & FindDwarf(lbDwarves.SelectedItem).Strength.ToString
             lblWeight.Text = "Inventory weight: " & FindDwarf(lbDwarves.SelectedItem).InventoryWeight.ToString
+            lblHP.Text = "HP: " & FindDwarf(lbDwarves.SelectedItem).HP & "/100"
+            lbldamage.Text = "Damage: " & FindDwarf(lbDwarves.SelectedItem).Damage
         Else
             lblSelectedState.Text = ""
         End If

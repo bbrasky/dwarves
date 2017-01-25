@@ -37,6 +37,8 @@ Partial Class Form1
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.lblWeight = New System.Windows.Forms.Label()
+        Me.lblHP = New System.Windows.Forms.Label()
+        Me.lbldamage = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -140,6 +142,8 @@ Partial Class Form1
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.lbldamage)
+        Me.GroupBox2.Controls.Add(Me.lblHP)
         Me.GroupBox2.Controls.Add(Me.lblWeight)
         Me.GroupBox2.Controls.Add(Me.lblSelectedState)
         Me.GroupBox2.Controls.Add(Me.lblStrength)
@@ -167,6 +171,24 @@ Partial Class Form1
         Me.lblWeight.Size = New System.Drawing.Size(94, 13)
         Me.lblWeight.TabIndex = 9
         Me.lblWeight.Text = "Inventory Weight: "
+        '
+        'lblHP
+        '
+        Me.lblHP.AutoSize = True
+        Me.lblHP.Location = New System.Drawing.Point(6, 66)
+        Me.lblHP.Name = "lblHP"
+        Me.lblHP.Size = New System.Drawing.Size(28, 13)
+        Me.lblHP.TabIndex = 10
+        Me.lblHP.Text = "HP: "
+        '
+        'lbldamage
+        '
+        Me.lbldamage.AutoSize = True
+        Me.lbldamage.Location = New System.Drawing.Point(6, 80)
+        Me.lbldamage.Name = "lbldamage"
+        Me.lbldamage.Size = New System.Drawing.Size(50, 13)
+        Me.lbldamage.TabIndex = 11
+        Me.lbldamage.Text = "Damage:"
         '
         'Form1
         '
@@ -202,5 +224,7 @@ Partial Class Form1
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents lblWeight As System.Windows.Forms.Label
+    Friend WithEvents lblHP As System.Windows.Forms.Label
+    Friend WithEvents lbldamage As System.Windows.Forms.Label
 
 End Class

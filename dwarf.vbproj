@@ -116,6 +116,7 @@
     </Compile>
     <Compile Include="Resources.vb" />
     <Compile Include="Tree.vb" />
+    <Compile Include="Wildlife.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="dlg_Give.resx">
