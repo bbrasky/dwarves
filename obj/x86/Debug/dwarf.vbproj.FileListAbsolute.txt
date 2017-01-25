@@ -1,0 +1,12 @@
+C:\dwarf\dwarf\dwarf\bin\Debug\dwarf.exe
+C:\dwarf\dwarf\dwarf\bin\Debug\dwarf.pdb
+C:\dwarf\dwarf\dwarf\bin\Debug\dwarf.xml
+C:\dwarf\dwarf\dwarf\obj\x86\Debug\dwarf.dlg_NewDwarf.resources
+C:\dwarf\dwarf\dwarf\obj\x86\Debug\dwarf.Form1.resources
+C:\dwarf\dwarf\dwarf\obj\x86\Debug\dwarf.Resources.resources
+C:\dwarf\dwarf\dwarf\obj\x86\Debug\dwarf.vbproj.GenerateResource.Cache
+C:\dwarf\dwarf\dwarf\obj\x86\Debug\dwarf.exe
+C:\dwarf\dwarf\dwarf\obj\x86\Debug\dwarf.xml
+C:\dwarf\dwarf\dwarf\obj\x86\Debug\dwarf.pdb
+C:\dwarf\dwarf\dwarf\obj\x86\Debug\dwarf.dlg_Give.resources
+C:\dwarf\dwarf\dwarf\obj\x86\Debug\dwarf.dlg_Inventory.resources
