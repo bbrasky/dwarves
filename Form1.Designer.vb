@@ -39,6 +39,8 @@ Partial Class Form1
         Me.lblWeight = New System.Windows.Forms.Label()
         Me.lblHP = New System.Windows.Forms.Label()
         Me.lbldamage = New System.Windows.Forms.Label()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.txtRandom = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -190,11 +192,30 @@ Partial Class Form1
         Me.lbldamage.TabIndex = 11
         Me.lbldamage.Text = "Damage:"
         '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(407, 12)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(106, 23)
+        Me.Button4.TabIndex = 11
+        Me.Button4.Text = "Generate Random"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'txtRandom
+        '
+        Me.txtRandom.Location = New System.Drawing.Point(520, 14)
+        Me.txtRandom.Name = "txtRandom"
+        Me.txtRandom.Size = New System.Drawing.Size(65, 20)
+        Me.txtRandom.TabIndex = 12
+        Me.txtRandom.Text = "1"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(820, 343)
+        Me.Controls.Add(Me.txtRandom)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Button2)
@@ -208,6 +229,7 @@ Partial Class Form1
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents btnNewDwarf As System.Windows.Forms.Button
@@ -226,5 +248,7 @@ Partial Class Form1
     Friend WithEvents lblWeight As System.Windows.Forms.Label
     Friend WithEvents lblHP As System.Windows.Forms.Label
     Friend WithEvents lbldamage As System.Windows.Forms.Label
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents txtRandom As System.Windows.Forms.TextBox
 
 End Class

@@ -96,4 +96,11 @@
         Dwarves.Remove(FindDwarf(lbDwarves.SelectedItem))
         lbDwarves.Items.Remove(lbDwarves.SelectedItem)
     End Sub
+
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        If txtRandom.Text <> "" Then
+            SpawnControl.AutoSpawn(Convert.ToInt32(txtRandom.Text), Dwarves)
+            RefreshList()
+        End If
+    End Sub
 End Class
