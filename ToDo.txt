@@ -1,0 +1,4 @@
+﻿add combat system
+add health regen ooc
+attack rate different for wildlife than dwarves?
+map system
