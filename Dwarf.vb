@@ -12,9 +12,29 @@
     Private InvWeight As Integer
     Private dwHP As Integer = 100
     Private dwDamage As Integer = 0
+    Private LocationX As Integer
+    Private LocationY As Integer
 
     'Internal
     Private VAR_SPEEDSCALE As Integer = 5000
+
+    Public Property X As Integer
+        Get
+            Return LocationX
+        End Get
+        Set(ByVal value As Integer)
+
+        End Set
+    End Property
+
+    Public Property Y As Integer
+        Get
+            Return LocationY
+        End Get
+        Set(ByVal value As Integer)
+
+        End Set
+    End Property
 
     Public Property Damage As Integer
         Get
@@ -92,10 +112,9 @@
     Public Sub New()
     End Sub
 
-    Public Sub RemoveFromInventory(ByVal itemName As String)
-        'this isn't working, I think the string that comes from the name doesn't match the object name
-        MsgBox("remove " & itemName)
-        Inventory.Remove(itemName)
+    Public Sub RemoveFromInventory(ByVal itemName As Integer)
+        'We're actually using the index here because the class name doesn't convert cleanly to string - dwarf.Item+<ITEM>
+        Inventory.RemoveAt(itemName)
     End Sub
 
     Public Function thinkAndAct() As String
@@ -123,16 +142,22 @@
                 State = "Farming"
                 Resources.Lumber += 1
                 Fatigue += 5
+                'Done at this location, wander
+                Wander()
                 Return result
             ElseIf TypeOf iObj Is Item.Basket Then
                 result = dwName & " harvests fruit from a tree."
                 Resources.Food += 1
                 Fatigue += 2
                 State = "Farming"
+                'Done at this location, wander
+                Wander()
                 Return result
             Else
                 'Nothing in inventory dictates what we're doing, let's wander around
                 State = "wandering, resting."
+                'Done at this location, wander
+                Wander()
                 Return ""
             End If
 
@@ -165,6 +190,22 @@
         AddHandler ActionTimer.Tick, AddressOf TimerTick
         ActionTimer.Interval = VAR_SPEEDSCALE
         ActionTimer.Start()
+        LocationX = SpawnControl.SpawnLocationX
+        LocationY = SpawnControl.SpawnLocationY
+    End Sub
+
+    Private Sub Wander()
+        Dim WanderX As Integer = SpawnControl.GetRandom(1, 100)
+        Dim WanderY As Integer = SpawnControl.GetRandom(1, 100)
+        If WanderX > 50 Then WanderX = 1 Else WanderX = -1
+        If WanderY > 50 Then WanderY = 1 Else WanderY = -1
+
+        If LocationX + WanderX > -1 AndAlso LocationX + WanderX < 101 Then
+            LocationX = LocationX + WanderX
+        End If
+        If LocationY + WanderY > -1 AndAlso LocationY + WanderY < 101 Then
+            LocationY = LocationY + WanderY
+        End If
     End Sub
 
     Private Sub TimerTick(ByVal sender As Object, ByVal e As EventArgs)

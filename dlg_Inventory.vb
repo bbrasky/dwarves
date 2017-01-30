@@ -17,7 +17,7 @@ Public Class dlg_Inventory
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Form1.FindDwarf(Form1.lbDwarves.SelectedItem).RemoveFromInventory(lbItems.SelectedItem)
+        Form1.FindDwarf(Form1.lbDwarves.SelectedItem).RemoveFromInventory(lbItems.SelectedIndex)
         lbItems.Items.Remove(lbItems.SelectedItem)
     End Sub
 End Class

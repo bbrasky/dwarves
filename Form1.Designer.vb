@@ -41,6 +41,7 @@ Partial Class Form1
         Me.lbldamage = New System.Windows.Forms.Label()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.txtRandom = New System.Windows.Forms.TextBox()
+        Me.lblCoords = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -144,6 +145,7 @@ Partial Class Form1
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.lblCoords)
         Me.GroupBox2.Controls.Add(Me.lbldamage)
         Me.GroupBox2.Controls.Add(Me.lblHP)
         Me.GroupBox2.Controls.Add(Me.lblWeight)
@@ -209,6 +211,15 @@ Partial Class Form1
         Me.txtRandom.TabIndex = 12
         Me.txtRandom.Text = "1"
         '
+        'lblCoords
+        '
+        Me.lblCoords.AutoSize = True
+        Me.lblCoords.Location = New System.Drawing.Point(6, 95)
+        Me.lblCoords.Name = "lblCoords"
+        Me.lblCoords.Size = New System.Drawing.Size(69, 13)
+        Me.lblCoords.TabIndex = 12
+        Me.lblCoords.Text = "Coordinates: "
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -250,5 +261,6 @@ Partial Class Form1
     Friend WithEvents lbldamage As System.Windows.Forms.Label
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents txtRandom As System.Windows.Forms.TextBox
+    Friend WithEvents lblCoords As System.Windows.Forms.Label
 
 End Class
