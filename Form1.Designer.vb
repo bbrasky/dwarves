@@ -34,7 +34,9 @@ Partial Class Form1
         Me.lblSelectedState = New System.Windows.Forms.Label()
         Me.lblStrength = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.lblSpeed = New System.Windows.Forms.Label()
         Me.lblCoords = New System.Windows.Forms.Label()
         Me.lbldamage = New System.Windows.Forms.Label()
         Me.lblHP = New System.Windows.Forms.Label()
@@ -43,8 +45,8 @@ Partial Class Form1
         Me.Button4 = New System.Windows.Forms.Button()
         Me.txtRandom = New System.Windows.Forms.TextBox()
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.lblSpeed = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -98,7 +100,7 @@ Partial Class Form1
         'lblLumber
         '
         Me.lblLumber.AutoSize = True
-        Me.lblLumber.Location = New System.Drawing.Point(6, 16)
+        Me.lblLumber.Location = New System.Drawing.Point(5, 16)
         Me.lblLumber.Name = "lblLumber"
         Me.lblLumber.Size = New System.Drawing.Size(45, 13)
         Me.lblLumber.TabIndex = 5
@@ -107,7 +109,7 @@ Partial Class Form1
         'lblFood
         '
         Me.lblFood.AutoSize = True
-        Me.lblFood.Location = New System.Drawing.Point(6, 34)
+        Me.lblFood.Location = New System.Drawing.Point(5, 34)
         Me.lblFood.Name = "lblFood"
         Me.lblFood.Size = New System.Drawing.Size(34, 13)
         Me.lblFood.TabIndex = 6
@@ -136,14 +138,24 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
-        Me.GroupBox1.Controls.Add(Me.lblLumber)
-        Me.GroupBox1.Controls.Add(Me.lblFood)
-        Me.GroupBox1.Location = New System.Drawing.Point(520, 52)
+        Me.GroupBox1.Location = New System.Drawing.Point(520, 45)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(288, 277)
+        Me.GroupBox1.Size = New System.Drawing.Size(288, 284)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.lblLumber)
+        Me.GroupBox3.Controls.Add(Me.lblFood)
+        Me.GroupBox3.Location = New System.Drawing.Point(9, 19)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(273, 117)
+        Me.GroupBox3.TabIndex = 8
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Resources"
         '
         'GroupBox2
         '
@@ -160,6 +172,15 @@ Partial Class Form1
         Me.GroupBox2.TabIndex = 7
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Selected Dwarf"
+        '
+        'lblSpeed
+        '
+        Me.lblSpeed.AutoSize = True
+        Me.lblSpeed.Location = New System.Drawing.Point(6, 110)
+        Me.lblSpeed.Name = "lblSpeed"
+        Me.lblSpeed.Size = New System.Drawing.Size(41, 13)
+        Me.lblSpeed.TabIndex = 13
+        Me.lblSpeed.Text = "Speed:"
         '
         'lblCoords
         '
@@ -208,7 +229,7 @@ Partial Class Form1
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(407, 12)
+        Me.Button4.Location = New System.Drawing.Point(336, 12)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(106, 23)
         Me.Button4.TabIndex = 11
@@ -217,7 +238,7 @@ Partial Class Form1
         '
         'txtRandom
         '
-        Me.txtRandom.Location = New System.Drawing.Point(520, 14)
+        Me.txtRandom.Location = New System.Drawing.Point(449, 14)
         Me.txtRandom.Name = "txtRandom"
         Me.txtRandom.Size = New System.Drawing.Size(65, 20)
         Me.txtRandom.TabIndex = 12
@@ -225,21 +246,12 @@ Partial Class Form1
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(733, 14)
+        Me.Button5.Location = New System.Drawing.Point(520, 12)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(75, 23)
         Me.Button5.TabIndex = 13
-        Me.Button5.Text = "Tree Map"
+        Me.Button5.Text = "Map"
         Me.Button5.UseVisualStyleBackColor = True
-        '
-        'lblSpeed
-        '
-        Me.lblSpeed.AutoSize = True
-        Me.lblSpeed.Location = New System.Drawing.Point(6, 110)
-        Me.lblSpeed.Name = "lblSpeed"
-        Me.lblSpeed.Size = New System.Drawing.Size(41, 13)
-        Me.lblSpeed.TabIndex = 13
-        Me.lblSpeed.Text = "Speed:"
         '
         'Form1
         '
@@ -258,7 +270,8 @@ Partial Class Form1
         Me.Controls.Add(Me.btnNewDwarf)
         Me.Name = "Form1"
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
@@ -286,5 +299,6 @@ Partial Class Form1
     Friend WithEvents lblCoords As System.Windows.Forms.Label
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents lblSpeed As System.Windows.Forms.Label
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
 
 End Class

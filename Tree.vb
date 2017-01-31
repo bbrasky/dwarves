@@ -45,7 +45,7 @@
         For y = 0 To Map.HEIGHT
             For x = 0 To Map.WIDTH
                 If Form1.DwarfExistsAt(x, y) Then
-                    tData = tData & "D "
+                    tData = tData & "▲ "
                 Else
                     tData = tData & Trees(x, y).ToString & " "
                 End If
@@ -53,7 +53,7 @@
             Next
             tData = tData & vbNewLine
         Next
-        tData = tData.Replace("1", "T")
+        tData = tData.Replace("1", "Ϯ")
         tData = tData.Replace("0", " ")
         Return tData
     End Function
