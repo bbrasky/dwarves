@@ -23,7 +23,8 @@
     Public Sub SpawnTimer_Tick(ByVal sender As Object, ByVal e As EventArgs)
         'randomly spawn a new tree
         Trees(SpawnControl.GetRandom(0, Map.WIDTH), SpawnControl.GetRandom(0, Map.HEIGHT)) = 1
-        Form1.rtbOutput.AppendText("A new tree has grown!" & vbNewLine)
+        'Form1.rtbOutput.AppendText("A new tree has grown!" & vbNewLine)
+        ActionLog.Write("A new tree has grown!")
     End Sub
 
     Public Function TreeExists(ByVal PositionX As Integer, ByVal PositionY As Integer) As Boolean

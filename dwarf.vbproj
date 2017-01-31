@@ -72,6 +72,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionLog.vb" />
     <Compile Include="dlg_Give.Designer.vb">
       <DependentUpon>dlg_Give.vb</DependentUpon>
     </Compile>
@@ -99,6 +100,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Items.vb" />
+    <Compile Include="Randomizer.vb" />
     <Compile Include="Map.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

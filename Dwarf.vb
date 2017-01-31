@@ -1,4 +1,6 @@
-﻿Public Class Dwarf
+﻿Imports System.Reflection
+
+Public Class Dwarf
     Public Inventory As New List(Of Object)
 
     Private WithEvents ActionTimer As New Timer
@@ -18,6 +20,9 @@
 
     'Internal
     Private VAR_SPEEDSCALE As Integer = 5000
+
+    Private MyActivities As New List(Of Integer)
+    Private ActPriority As New List(Of Object)
 
     Public Property Speed As Integer
         Get
@@ -129,6 +134,15 @@
         Inventory.RemoveAt(itemName)
     End Sub
 
+    Private Function InventoryContains(ByVal invItem As Object) As Boolean
+        For Each vItem In Inventory
+            If vItem = invItem Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
+
     Public Function thinkAndAct() As String
         Dim result As String = ""
         'Check to see if we're recovering
@@ -228,6 +242,13 @@
         ActionTimer.Start()
         LocationX = SpawnControl.SpawnLocationX
         LocationY = SpawnControl.SpawnLocationY
+
+        'Generate list of activity priorities (random for each dwarf) - as integers in a random list
+        'For i = 0 To Activities.Count - 1
+        '    MyActivities.Add(i)
+        'Next
+        'MyActivities.Sort(New Randomizer(Of Integer)())
+
     End Sub
 
     Private Sub Wander()
@@ -248,8 +269,9 @@
     Private Sub TimerTick(ByVal sender As Object, ByVal e As EventArgs)
         Dim ActResult As String = thinkAndAct()
         If ActResult <> "" Then
-            Form1.rtbOutput.AppendText(ActResult & vbNewLine)
-            Form1.rtbOutput.ScrollToCaret()
+            'Form1.rtbOutput.AppendText(ActResult & vbNewLine)
+            ActionLog.Write(ActResult)
+            'Form1.rtbOutput.ScrollToCaret()
         End If
         InventoryWeight = CalculateWeight()
         HasWeapon()

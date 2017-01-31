@@ -67,7 +67,7 @@ Partial Class Form1
         '
         'rtbOutput
         '
-        Me.rtbOutput.BackColor = System.Drawing.Color.White
+        Me.rtbOutput.BackColor = System.Drawing.Color.Black
         Me.rtbOutput.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.rtbOutput.Location = New System.Drawing.Point(173, 52)
         Me.rtbOutput.Name = "rtbOutput"

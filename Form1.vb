@@ -2,9 +2,18 @@
     Private Dwarves As New List(Of Dwarf)
     Public MyForest As New Tree
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'Set up control of the action log
+        ActionLog.InitializeHighlights()
+        ActionLog.DwarfList = Dwarves
+        ActionLog.OutputField = rtbOutput
+
+        'Data refresh for stats
         tmrDataRefresh.Enabled = True
         tmrDataRefresh.Start()
+
+        'Initialize the forest
         MyForest.InitializeTrees()
+
     End Sub
 
     Private Sub btnNewDwarf_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewDwarf.Click
@@ -95,7 +104,8 @@
     End Sub
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        rtbOutput.AppendText(lbDwarves.SelectedItem & "has been fired!  Out with you now!" & vbNewLine)
+        'rtbOutput.AppendText(lbDwarves.SelectedItem & "has been fired!  Out with you now!" & vbNewLine)
+        ActionLog.Write(lbDwarves.SelectedItem & "has been fired!  Out with you now!")
         Dwarves.Remove(FindDwarf(lbDwarves.SelectedItem))
         lbDwarves.Items.Remove(lbDwarves.SelectedItem)
     End Sub
