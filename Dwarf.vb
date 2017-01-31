@@ -18,6 +18,7 @@
     'Internal
     Private VAR_SPEEDSCALE As Integer = 5000
 
+    'Map location
     Public Property X As Integer
         Get
             Return LocationX
@@ -228,6 +229,7 @@
             LocationY = LocationY + WanderY
         End If
     End Sub
+
 
     Private Sub TimerTick(ByVal sender As Object, ByVal e As EventArgs)
         Dim ActResult As String = thinkAndAct()

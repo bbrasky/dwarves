@@ -109,4 +109,11 @@
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
         TreeData.Show()
     End Sub
+
+    Public Function DwarfExistsAt(ByVal lX As Integer, ByVal lY As Integer) As Boolean
+        For Each iDwarf As Dwarf In Dwarves
+            If iDwarf.X = lX AndAlso iDwarf.Y = lY Then Return True
+        Next
+        Return False
+    End Function
 End Class
