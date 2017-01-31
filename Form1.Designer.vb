@@ -42,6 +42,7 @@ Partial Class Form1
         Me.Button4 = New System.Windows.Forms.Button()
         Me.txtRandom = New System.Windows.Forms.TextBox()
         Me.lblCoords = New System.Windows.Forms.Label()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -220,11 +221,21 @@ Partial Class Form1
         Me.lblCoords.TabIndex = 12
         Me.lblCoords.Text = "Coordinates: "
         '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(733, 14)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(75, 23)
+        Me.Button5.TabIndex = 13
+        Me.Button5.Text = "Tree Map"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(820, 343)
+        Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.txtRandom)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
@@ -262,5 +273,6 @@ Partial Class Form1
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents txtRandom As System.Windows.Forms.TextBox
     Friend WithEvents lblCoords As System.Windows.Forms.Label
+    Friend WithEvents Button5 As System.Windows.Forms.Button
 
 End Class

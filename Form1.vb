@@ -1,9 +1,10 @@
 ﻿Public Class Form1
     Private Dwarves As New List(Of Dwarf)
-
+    Public MyForest As New Tree
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         tmrDataRefresh.Enabled = True
         tmrDataRefresh.Start()
+        MyForest.InitializeTrees()
     End Sub
 
     Private Sub btnNewDwarf_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewDwarf.Click
@@ -103,5 +104,9 @@
             SpawnControl.AutoSpawn(Convert.ToInt32(txtRandom.Text), Dwarves)
             RefreshList()
         End If
+    End Sub
+
+    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
+        TreeData.Show()
     End Sub
 End Class

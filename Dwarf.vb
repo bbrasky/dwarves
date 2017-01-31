@@ -138,31 +138,52 @@
         'Decide what to do based on inventory
         For Each iObj In Inventory
             If TypeOf iObj Is Item.Axe Then
-                result = dwName & " chops down a tree."
-                State = "Farming"
-                Resources.Lumber += 1
-                Fatigue += 5
-                'Done at this location, wander
-                Wander()
-                Return result
+
+                If Form1.MyForest.TreeExists(LocationX, LocationY) Then
+                    'There's a tree here
+                    result = dwName & " chops down a tree."
+                    State = "Farming"
+                    Resources.Lumber += 1
+                    Fatigue += 5
+                    Form1.MyForest.ClearTree(LocationX, LocationY)
+
+                    'Done at this location, wander
+                    Wander()
+                    Return result
+                Else
+                    result = dwName & " wants to chop down a tree, but doesn't see one here."
+                    Wander()
+                    Return result
+                End If
+
+
             ElseIf TypeOf iObj Is Item.Basket Then
-                result = dwName & " harvests fruit from a tree."
-                Resources.Food += 1
-                Fatigue += 2
-                State = "Farming"
-                'Done at this location, wander
-                Wander()
-                Return result
+                If Form1.MyForest.TreeExists(LocationX, LocationY) Then
+                    result = dwName & " harvests fruit from a tree."
+                    Resources.Food += 1
+                    Fatigue += 2
+                    State = "Farming"
+                    'Done at this location, wander
+                    Wander()
+                    Return result
+                Else
+                    result = dwName & " wants to harvest fruit, but there is none here."
+                    Wander()
+                    Return result
+                End If
+
             Else
-                'Nothing in inventory dictates what we're doing, let's wander around
-                State = "wandering, resting."
-                'Done at this location, wander
-                Wander()
-                Return ""
+
             End If
 
         Next
-        Return result
+
+        'Nothing in inventory dictates what we're doing, let's wander around
+        State = "wandering, resting."
+        'Done at this location, wander
+        Wander()
+        Return dwName & " wanders around aimlessly."
+
     End Function
 
     Private Function HasWeapon() As Boolean
@@ -200,10 +221,10 @@
         If WanderX > 50 Then WanderX = 1 Else WanderX = -1
         If WanderY > 50 Then WanderY = 1 Else WanderY = -1
 
-        If LocationX + WanderX > -1 AndAlso LocationX + WanderX < 101 Then
+        If LocationX + WanderX > -1 AndAlso LocationX + WanderX <= Map.WIDTH Then
             LocationX = LocationX + WanderX
         End If
-        If LocationY + WanderY > -1 AndAlso LocationY + WanderY < 101 Then
+        If LocationY + WanderY > -1 AndAlso LocationY + WanderY <= Map.HEIGHT Then
             LocationY = LocationY + WanderY
         End If
     End Sub

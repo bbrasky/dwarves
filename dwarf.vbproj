@@ -99,6 +99,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Items.vb" />
+    <Compile Include="Map.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -117,6 +118,12 @@
     <Compile Include="Resources.vb" />
     <Compile Include="SpawnControl.vb" />
     <Compile Include="Tree.vb" />
+    <Compile Include="TreeData.Designer.vb">
+      <DependentUpon>TreeData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TreeData.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Wildlife.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +144,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreeData.resx">
+      <DependentUpon>TreeData.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
