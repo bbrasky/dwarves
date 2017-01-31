@@ -53,7 +53,7 @@
             tData = tData & vbNewLine
         Next
         tData = tData.Replace("1", "T")
-        tData = tData.Replace("0", "_")
+        tData = tData.Replace("0", " ")
         Return tData
     End Function
 

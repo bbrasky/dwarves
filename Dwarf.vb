@@ -14,9 +14,20 @@
     Private dwDamage As Integer = 0
     Private LocationX As Integer
     Private LocationY As Integer
+    Private dwSpeed As Integer = VAR_SPEEDSCALE \ 100
 
     'Internal
     Private VAR_SPEEDSCALE As Integer = 5000
+
+    Public Property Speed As Integer
+        Get
+            Return dwSpeed
+        End Get
+        Set(ByVal value As Integer)
+            dwSpeed = value
+        End Set
+    End Property
+
 
     'Map location
     Public Property X As Integer
@@ -208,6 +219,9 @@
     End Function
 
     Public Sub Activate()
+        VAR_SPEEDSCALE = SpawnControl.GetRandom(5000, 6000)
+        Speed = VAR_SPEEDSCALE / 100
+
         ActionTimer.Enabled = True
         AddHandler ActionTimer.Tick, AddressOf TimerTick
         ActionTimer.Interval = VAR_SPEEDSCALE

@@ -35,14 +35,15 @@ Partial Class Form1
         Me.lblStrength = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.lblWeight = New System.Windows.Forms.Label()
-        Me.lblHP = New System.Windows.Forms.Label()
+        Me.lblCoords = New System.Windows.Forms.Label()
         Me.lbldamage = New System.Windows.Forms.Label()
+        Me.lblHP = New System.Windows.Forms.Label()
+        Me.lblWeight = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.txtRandom = New System.Windows.Forms.TextBox()
-        Me.lblCoords = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.lblSpeed = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -146,6 +147,7 @@ Partial Class Form1
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.lblSpeed)
         Me.GroupBox2.Controls.Add(Me.lblCoords)
         Me.GroupBox2.Controls.Add(Me.lbldamage)
         Me.GroupBox2.Controls.Add(Me.lblHP)
@@ -159,23 +161,23 @@ Partial Class Form1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Selected Dwarf"
         '
-        'Button3
+        'lblCoords
         '
-        Me.Button3.Location = New System.Drawing.Point(92, 12)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 10
-        Me.Button3.Text = "Fire Dwarf"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.lblCoords.AutoSize = True
+        Me.lblCoords.Location = New System.Drawing.Point(6, 95)
+        Me.lblCoords.Name = "lblCoords"
+        Me.lblCoords.Size = New System.Drawing.Size(69, 13)
+        Me.lblCoords.TabIndex = 12
+        Me.lblCoords.Text = "Coordinates: "
         '
-        'lblWeight
+        'lbldamage
         '
-        Me.lblWeight.AutoSize = True
-        Me.lblWeight.Location = New System.Drawing.Point(6, 50)
-        Me.lblWeight.Name = "lblWeight"
-        Me.lblWeight.Size = New System.Drawing.Size(94, 13)
-        Me.lblWeight.TabIndex = 9
-        Me.lblWeight.Text = "Inventory Weight: "
+        Me.lbldamage.AutoSize = True
+        Me.lbldamage.Location = New System.Drawing.Point(6, 80)
+        Me.lbldamage.Name = "lbldamage"
+        Me.lbldamage.Size = New System.Drawing.Size(50, 13)
+        Me.lbldamage.TabIndex = 11
+        Me.lbldamage.Text = "Damage:"
         '
         'lblHP
         '
@@ -186,14 +188,23 @@ Partial Class Form1
         Me.lblHP.TabIndex = 10
         Me.lblHP.Text = "HP: "
         '
-        'lbldamage
+        'lblWeight
         '
-        Me.lbldamage.AutoSize = True
-        Me.lbldamage.Location = New System.Drawing.Point(6, 80)
-        Me.lbldamage.Name = "lbldamage"
-        Me.lbldamage.Size = New System.Drawing.Size(50, 13)
-        Me.lbldamage.TabIndex = 11
-        Me.lbldamage.Text = "Damage:"
+        Me.lblWeight.AutoSize = True
+        Me.lblWeight.Location = New System.Drawing.Point(6, 50)
+        Me.lblWeight.Name = "lblWeight"
+        Me.lblWeight.Size = New System.Drawing.Size(94, 13)
+        Me.lblWeight.TabIndex = 9
+        Me.lblWeight.Text = "Inventory Weight: "
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(92, 12)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 10
+        Me.Button3.Text = "Fire Dwarf"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Button4
         '
@@ -212,15 +223,6 @@ Partial Class Form1
         Me.txtRandom.TabIndex = 12
         Me.txtRandom.Text = "1"
         '
-        'lblCoords
-        '
-        Me.lblCoords.AutoSize = True
-        Me.lblCoords.Location = New System.Drawing.Point(6, 95)
-        Me.lblCoords.Name = "lblCoords"
-        Me.lblCoords.Size = New System.Drawing.Size(69, 13)
-        Me.lblCoords.TabIndex = 12
-        Me.lblCoords.Text = "Coordinates: "
-        '
         'Button5
         '
         Me.Button5.Location = New System.Drawing.Point(733, 14)
@@ -229,6 +231,15 @@ Partial Class Form1
         Me.Button5.TabIndex = 13
         Me.Button5.Text = "Tree Map"
         Me.Button5.UseVisualStyleBackColor = True
+        '
+        'lblSpeed
+        '
+        Me.lblSpeed.AutoSize = True
+        Me.lblSpeed.Location = New System.Drawing.Point(6, 110)
+        Me.lblSpeed.Name = "lblSpeed"
+        Me.lblSpeed.Size = New System.Drawing.Size(41, 13)
+        Me.lblSpeed.TabIndex = 13
+        Me.lblSpeed.Text = "Speed:"
         '
         'Form1
         '
@@ -274,5 +285,6 @@ Partial Class Form1
     Friend WithEvents txtRandom As System.Windows.Forms.TextBox
     Friend WithEvents lblCoords As System.Windows.Forms.Label
     Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents lblSpeed As System.Windows.Forms.Label
 
 End Class

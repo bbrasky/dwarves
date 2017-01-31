@@ -80,6 +80,7 @@
             lblHP.Text = "HP: " & FindDwarf(lbDwarves.SelectedItem).HP & "/100"
             lbldamage.Text = "Damage: " & FindDwarf(lbDwarves.SelectedItem).Damage
             lblCoords.Text = "Coordinates: " & FindDwarf(lbDwarves.SelectedItem).X & ", " & FindDwarf(lbDwarves.SelectedItem).Y
+            lblSpeed.Text = "Speed: " & FindDwarf(lbDwarves.SelectedItem).speed
         Else
             lblSelectedState.Text = ""
         End If
