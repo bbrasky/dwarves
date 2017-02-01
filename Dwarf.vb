@@ -283,6 +283,7 @@ Public Class Dwarf
         'add skills
         MySkills.Add(New Skills.Harvesting)
         MySkills.Add(New Skills.WoodCutting)
+        MySkills.Add(New Skills.RockCollecting)
 
         'Roll proficiencies
         For Each iSkill In MySkills

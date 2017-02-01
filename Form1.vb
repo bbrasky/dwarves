@@ -61,6 +61,8 @@
                             iDwarf.Inventory.Add(New Item.Axe)
                         Case "Basket"
                             iDwarf.Inventory.Add(New Item.Basket)
+                        Case "Satchel"
+                            iDwarf.Inventory.Add(New Item.Satchel)
                     End Select
 
                 End If

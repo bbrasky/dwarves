@@ -68,7 +68,7 @@ Partial Class dlg_Give
         '
         Me.lbItems.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.lbItems.FormattingEnabled = True
-        Me.lbItems.Items.AddRange(New Object() {"Axe", "Basket"})
+        Me.lbItems.Items.AddRange(New Object() {"Axe", "Basket", "Satchel"})
         Me.lbItems.Location = New System.Drawing.Point(12, 30)
         Me.lbItems.Name = "lbItems"
         Me.lbItems.Size = New System.Drawing.Size(158, 21)

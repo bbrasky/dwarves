@@ -94,4 +94,110 @@
             End Set
         End Property
     End Class
+
+    Class Stone
+        Private Dura As Integer = 100
+        Private Desc As String = "A rock"
+        Private iWeight As Integer = 30
+        Private ItemIsWeapon As Boolean = True
+        Private iDamage As Integer = 2
+
+        Public Property Damage As Integer
+            Get
+                Return iDamage
+            End Get
+            Set(ByVal value As Integer)
+                iDamage = value
+            End Set
+        End Property
+
+        Public Property IsWeapon As Boolean
+            Get
+                Return ItemIsWeapon
+            End Get
+            Set(ByVal value As Boolean)
+                ItemIsWeapon = value
+            End Set
+        End Property
+
+        Public Property Weight As Integer
+            Get
+                Return iWeight
+            End Get
+            Set(ByVal value As Integer)
+                iWeight = value
+            End Set
+        End Property
+
+        Public Property Durability As Integer
+            Get
+                Return Dura
+            End Get
+            Set(ByVal value As Integer)
+                Dura = value
+            End Set
+        End Property
+
+        Public Property Description As String
+            Get
+                Return Desc
+            End Get
+            Set(ByVal value As String)
+                Desc = value
+            End Set
+        End Property
+    End Class
+
+    Class Satchel
+        Private Dura As Integer = 100
+        Private Desc As String = "A bag"
+        Private iWeight As Integer = 40
+        Private ItemIsWeapon As Boolean = False
+        Private iDamage As Integer = 2
+
+        Public Property Damage As Integer
+            Get
+                Return iDamage
+            End Get
+            Set(ByVal value As Integer)
+                iDamage = value
+            End Set
+        End Property
+
+        Public Property IsWeapon As Boolean
+            Get
+                Return ItemIsWeapon
+            End Get
+            Set(ByVal value As Boolean)
+                ItemIsWeapon = value
+            End Set
+        End Property
+
+        Public Property Weight As Integer
+            Get
+                Return iWeight
+            End Get
+            Set(ByVal value As Integer)
+                iWeight = value
+            End Set
+        End Property
+
+        Public Property Durability As Integer
+            Get
+                Return Dura
+            End Get
+            Set(ByVal value As Integer)
+                Dura = value
+            End Set
+        End Property
+
+        Public Property Description As String
+            Get
+                Return Desc
+            End Get
+            Set(ByVal value As String)
+                Desc = value
+            End Set
+        End Property
+    End Class
 End Module
