@@ -45,6 +45,7 @@ Partial Class Form1
         Me.Button4 = New System.Windows.Forms.Button()
         Me.txtRandom = New System.Windows.Forms.TextBox()
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.lblSkillOrder = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -159,6 +160,7 @@ Partial Class Form1
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.lblSkillOrder)
         Me.GroupBox2.Controls.Add(Me.lblSpeed)
         Me.GroupBox2.Controls.Add(Me.lblCoords)
         Me.GroupBox2.Controls.Add(Me.lbldamage)
@@ -253,6 +255,15 @@ Partial Class Form1
         Me.Button5.Text = "Map"
         Me.Button5.UseVisualStyleBackColor = True
         '
+        'lblSkillOrder
+        '
+        Me.lblSkillOrder.AutoSize = True
+        Me.lblSkillOrder.Location = New System.Drawing.Point(160, 33)
+        Me.lblSkillOrder.Name = "lblSkillOrder"
+        Me.lblSkillOrder.Size = New System.Drawing.Size(58, 13)
+        Me.lblSkillOrder.TabIndex = 14
+        Me.lblSkillOrder.Text = "Skill Order:"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -300,5 +311,6 @@ Partial Class Form1
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents lblSpeed As System.Windows.Forms.Label
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents lblSkillOrder As System.Windows.Forms.Label
 
 End Class

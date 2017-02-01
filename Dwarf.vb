@@ -2,6 +2,7 @@
 
 Public Class Dwarf
     Public Inventory As New List(Of Object)
+    Public MySkills As New List(Of Object)
 
     Private WithEvents ActionTimer As New Timer
     Private RecentAction As String = ""
@@ -21,8 +22,11 @@ Public Class Dwarf
     'Internal
     Private VAR_SPEEDSCALE As Integer = 5000
 
-    Private MyActivities As New List(Of Integer)
-    Private ActPriority As New List(Of Object)
+    'Proficiencies
+    'Private SK_Harvesting As Integer
+    'Private SK_WoodGathering As Integer
+    'Private AllSkills As New List(Of Integer)(New Integer() {SK_Harvesting, SK_WoodGathering})
+
 
     Public Property Speed As Integer
         Get
@@ -134,14 +138,14 @@ Public Class Dwarf
         Inventory.RemoveAt(itemName)
     End Sub
 
-    Private Function InventoryContains(ByVal invItem As Object) As Boolean
-        For Each vItem In Inventory
-            If vItem = invItem Then
-                Return True
-            End If
-        Next
-        Return False
-    End Function
+    'Private Function InventoryContains(ByVal invItem As Object) As Boolean
+    '    For Each vItem In Inventory
+    '        If vItem = invItem Then
+    '            Return True
+    '        End If
+    '    Next
+    '    Return False
+    'End Function
 
     Public Function thinkAndAct() As String
         Dim result As String = ""
@@ -161,55 +165,88 @@ Public Class Dwarf
             Return Name & " is exhausted and is taking a break."
         End If
 
-        'Decide what to do based on inventory
-        For Each iObj In Inventory
-            If TypeOf iObj Is Item.Axe Then
+        '==========================================================================
+        '| This is the new way that we handle skill priority and decide what to do
+        '==========================================================================
+        'Decide what to do based on proficiency
+        For Each iobj In MySkills
+            For Each invItem In Inventory
+                If invItem.ToString = iobj.Requires.ToString Then
+                    'We have the right item, do the action if the resource is present
+                    If iobj.RequiredResourceExists(LocationX, LocationY) Then
+                        'The resource is present
+                        result = dwName & " " & iobj.ActionText
+                        State = iobj.State
+                        iobj.GrantReward()
+                        iobj.ClearResource(LocationX, LocationY)
+                        Wander()
+                        Return result
+                    Else
+                        result = dwName & " " & iobj.FailureText
+                        Wander()
+                        Return result
+                    End If
 
-                If Form1.MyForest.TreeExists(LocationX, LocationY) Then
-                    'There's a tree here
-                    result = dwName & " chops down a tree."
-                    State = "Farming"
-                    Resources.Lumber += 1
-                    Fatigue += 5
-                    Form1.MyForest.ClearTree(LocationX, LocationY)
-
-                    'Done at this location, wander
-                    Wander()
-                    Return result
-                Else
-                    result = dwName & " wants to chop down a tree, but doesn't see one here."
-                    Wander()
-                    Return result
                 End If
-
-
-            ElseIf TypeOf iObj Is Item.Basket Then
-                If Form1.MyForest.TreeExists(LocationX, LocationY) Then
-                    result = dwName & " harvests fruit from a tree."
-                    Resources.Food += 1
-                    Fatigue += 2
-                    State = "Farming"
-                    'Done at this location, wander
-                    Wander()
-                    Return result
-                Else
-                    result = dwName & " wants to harvest fruit, but there is none here."
-                    Wander()
-                    Return result
-                End If
-
-            Else
-
-            End If
-
+            Next
         Next
+        '==============================================================================
 
-        'Nothing in inventory dictates what we're doing, let's wander around
+        ''We're no longer doing this - but it's functional
+        ''Decide what to do based on inventory
+        'For Each iObj In Inventory
+        '    If TypeOf iObj Is Item.Axe Then
+
+        '        If Form1.MyForest.TreeExists(LocationX, LocationY) Then
+        '            'There's a tree here
+        '            result = dwName & " chops down a tree."
+        '            State = "Farming"
+        '            Resources.Lumber += 1
+        '            Fatigue += 5
+        '            Form1.MyForest.ClearTree(LocationX, LocationY)
+
+        '            'Done at this location, wander
+        '            Wander()
+        '            Return result
+        '        Else
+        '            result = dwName & " wants to chop down a tree, but doesn't see one here."
+        '            Wander()
+        '            Return result
+        '        End If
+
+
+        '    ElseIf TypeOf iObj Is Item.Basket Then
+        '        If Form1.MyForest.TreeExists(LocationX, LocationY) Then
+        '            result = dwName & " harvests fruit from a tree."
+        '            Resources.Food += 1
+        '            Fatigue += 2
+        '            State = "Farming"
+        '            'Done at this location, wander
+        '            Wander()
+        '            Return result
+        '        Else
+        '            result = dwName & " wants to harvest fruit, but there is none here."
+        '            Wander()
+        '            Return result
+        '        End If
+
+        '    Else
+
+        '    End If
+
+        'Next
+
+        'We can't satisfy any requirements to do any of our proficiencies, let's wander
         State = "wandering, resting."
         'Done at this location, wander
         Wander()
         Return dwName & " wanders around aimlessly."
 
+    End Function
+
+    Private Function InventoryContains(ByVal vItem As Object) As Boolean
+        If Inventory.Contains(vItem) Then Return True
+        Return False
     End Function
 
     Private Function HasWeapon() As Boolean
@@ -243,13 +280,22 @@ Public Class Dwarf
         LocationX = SpawnControl.SpawnLocationX
         LocationY = SpawnControl.SpawnLocationY
 
-        'Generate list of activity priorities (random for each dwarf) - as integers in a random list
-        'For i = 0 To Activities.Count - 1
-        '    MyActivities.Add(i)
-        'Next
-        'MyActivities.Sort(New Randomizer(Of Integer)())
+        'add skills
+        MySkills.Add(New Skills.Harvesting)
+        MySkills.Add(New Skills.WoodCutting)
+
+        'Roll proficiencies
+        For Each iSkill In MySkills
+            iSkill.Proficiency = SpawnControl.GetRandom(1, 20)
+        Next
+
+        'Sort skills by proficiency
+        MySkills.Sort(Function(x, y) x.Proficiency.CompareTo(y.Proficiency))
+
+
 
     End Sub
+
 
     Private Sub Wander()
         Dim WanderX As Integer = SpawnControl.GetRandom(1, 100)

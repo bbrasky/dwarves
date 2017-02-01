@@ -118,6 +118,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Resources.vb" />
+    <Compile Include="Skills.vb" />
     <Compile Include="SpawnControl.vb" />
     <Compile Include="Tree.vb" />
     <Compile Include="TreeData.Designer.vb">

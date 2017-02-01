@@ -89,7 +89,14 @@
             lblHP.Text = "HP: " & FindDwarf(lbDwarves.SelectedItem).HP & "/100"
             lbldamage.Text = "Damage: " & FindDwarf(lbDwarves.SelectedItem).Damage
             lblCoords.Text = "Coordinates: " & FindDwarf(lbDwarves.SelectedItem).X & ", " & FindDwarf(lbDwarves.SelectedItem).Y
-            lblSpeed.Text = "Speed: " & FindDwarf(lbDwarves.SelectedItem).speed
+            lblSpeed.Text = "Speed: " & FindDwarf(lbDwarves.SelectedItem).Speed
+
+            Dim SkillText As String = "Skill Order:" & vbNewLine
+            For Each iobj As Object In FindDwarf(lbDwarves.SelectedItem).MySkills
+                SkillText = SkillText & iobj.ToString.Replace("dwarf.Skills+", "") & vbNewLine
+            Next
+            lblSkillOrder.Text = SkillText
+
         Else
             lblSelectedState.Text = ""
         End If
